@@ -1,0 +1,43 @@
+# C PROJECTS - work top to bottom. Compile everything with: gcc -Wall -Wextra -o name name.c (fix ALL warnings)
+# ACCESS LEVELS:
+#   L0 = your brain + compiler errors only
+#   L1 = man pages only (e.g. "man 3 rand", "man 3 printf") - install with: sudo apt install manpages-dev
+#   L2 = man pages + cppreference.com (reference pages only, no tutorials)
+#   L3 = Google allowed for CONCEPTS explained in words. Never copy or read full solution code.
+#   L4 = AI allowed for HINTS only, after 45+ min stuck. Say "hints only, no code" first.
+# RULES: if you used L3/L4 on a project, rewrite it from scratch the next day at L0. Optional book: "The C Programming Language" (K&R).
+# ---------------------------------------------------------------
+# STAGE 1 - basics (loops, conditions, functions, pointers)
+01 | Double in place - write a function that takes an int pointer and doubles the value; main's variable must change | learns: pointers | L0
+02 | FizzBuzz - print 1 to 100, "Fizz" for multiples of 3, "Buzz" for 5, "FizzBuzz" for both; then let the user pick the range | learns: modulo, if/else order | L0
+03 | Digit tools - read an int, print how many digits it has, their sum, and the number reversed (1234 -> 4321) | learns: / and % tricks | L0
+04 | Prime finder - check if a number is prime, then print all primes up to N | learns: nested loops, early exit | L0
+05 | Multiplication table - print a 10x10 table with neatly aligned columns | learns: printf field widths (%4d) | L1
+06 | Number guessing game - random 1-100, too high/too low hints, count guesses, ask to play again | learns: rand, srand, time | L1
+07 | Calculator - read "number operator number" (e.g. 3 * 4), print result, handle divide by zero | learns: switch, char input | L2
+08 | Array stats - read 10 numbers, separate functions for min, max, average | learns: passing arrays to functions | L0
+# STAGE 2 - strings and arrays
+09 | Reverse a string in place - no second array, reuse your swap idea | learns: char arrays, the '\0' terminator | L2
+10 | Your own string functions - write my_strlen, my_strcpy, my_strcmp without using string.h | learns: how strings really work | L2 (read what they DO, not how they're written)
+11 | Palindrome checker - "racecar" yes, "hello" no; then make it ignore spaces and capitals | learns: two-index loops, ctype.h | L2
+12 | Letter histogram - read a line, count each letter a-z, print a bar of * for each | learns: arrays as counters, char math ('c' - 'a') | L1
+13 | Caesar cipher - encode and decode text with a shift key, wrap z back to a | learns: char arithmetic, modulo | L3 (only to learn what a Caesar cipher is)
+14 | Bubble sort - sort an array smallest to largest using swaps of neighbours | learns: algorithms, your swap function in real use | L3 (read the idea in words only)
+15 | Binary search - search a sorted array by halving; count steps vs. a plain loop search | learns: algorithm thinking, loop bounds | L3 then L4 if stuck
+16 | Tic-tac-toe v2 - from scratch, no old file: one turn block, print_board(), check_win(symbol), draw detection, re-ask on bad input | learns: structuring a program | L0
+# STAGE 3 - structs, safe input, files, command line
+17 | Safe input - replace scanf with fgets + strtol; reject "abc" and "12abc" and ask again | learns: why scanf is fragile, error checking | L2
+18 | Grade book - struct with name and marks, array of 5 students, print average and top scorer | learns: structs | L2
+19 | Mini wc - count lines, words, chars from input; test with "./mywc < file.txt" and compare with real "wc" | learns: getchar, EOF, states | L1
+20 | Mini cp - "./mycp a.txt b.txt" copies a file; print an error if the file doesn't exist | learns: argc/argv, fopen, error handling | L1
+21 | Mini grep - "./mygrep word file.txt" prints matching lines with line numbers | learns: reading files line by line, strstr | L1
+22 | Hangman - load a random word from a words.txt file, 6 lives, show guessed letters | learns: combining files, strings, random | L2
+23 | Contact book - add/list/search contacts, saved to a file so they survive restarts | learns: writing and reading structured data | L2 then L4 if stuck
+# STAGE 4 - memory and bigger programs (also learn gdb and valgrind here: sudo apt install gdb valgrind)
+24 | Growing array - read an unknown amount of numbers until 0, store with malloc/realloc, free at the end; run under valgrind with zero leaks | learns: dynamic memory | L2 + L3
+25 | Linked list - insert at front/back, delete by value, print, free everything | learns: pointers to structs, memory ownership | L3 (diagrams only) then L4 hints
+26 | RPN calculator - evaluate "3 4 + 2 *" using a stack you write yourself | learns: stacks, parsing | L3 (concept only)
+27 | Game of Life - Conway's rules on a 20x20 grid in the terminal, step with Enter | learns: 2D arrays, neighbour counting, copying state | L3 (rules only)
+28 | Connect Four - 7x6 board, pieces drop down, check 4-in-a-row all directions | learns: generalizing your tic-tac-toe win check with loops | L0
+29 | Minesweeper - terminal version, revealing an empty cell opens its area | learns: recursion (flood fill) | L3 + L4 hints
+30 | Final boss: text adventure - rooms as structs, loaded from a file, commands like "go north" and "take key" | learns: everything together | L2 + L4 hints
